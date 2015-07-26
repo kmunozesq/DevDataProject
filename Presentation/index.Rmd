@@ -1,0 +1,51 @@
+---
+title       : Energy Consumption
+author      : Sulchan Yoon
+job         : R student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      #
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Description
+
+The Shiny App written displays energy consumption information for the years of 2012 2013 and 2014:
+
+- gas
+- electricity
+- water
+
+---
+## Details
+
+For the years of 2012, 2013, 2014, every Sunday, data is gathered from the meters. 
+
+The values are subtracted from each other to get the week's usage. 
+
+Finally, with electric prices in the local area, use a formula to gather the estimated price for the week. 
+
+---
+## Example
+
+Here are the first 10 lines of the Excel file:
+
+```{r head-10-lines, echo=FALSE}
+data <- read.csv("~/src/refcard-R/course-project/consumption.csv", sep=",", header=T)
+subset(data, select=c(Date,PriceGas,PriceElec,PriceWater))[1:10, ]
+```
+
+---
+## Lessons learned
+
+- It is necessary to use reactive functions when there are 2 or more inputs. 
+
+- In the renderPlot function, dataframe name needs parenthesis. 
+
+---
+## Conclusion
+
+- Writing the application does not take long, and thus we know that large projects are all doable. 
+
